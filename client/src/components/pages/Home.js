@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         authContext.loadUser()
-        // eslist-disable-next-line
+    // eslist-disable-next-line
     }, [])
 
     return (
