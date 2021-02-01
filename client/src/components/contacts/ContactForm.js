@@ -13,6 +13,7 @@ const ContactForm = () => {
             setContact({
                 name: '',
                 company: '',
+                birthday: '',
                 email: '',
                 phone: '',
                 comments: '',
@@ -24,13 +25,14 @@ const ContactForm = () => {
     const [contact, setContact] = useState({
         name: '',
         company: '',
+        birthday: '',
         email: '',
         phone: '',
         comments: '',
         type: 'personal'
     })
 
-    const { name, company, email, phone, comments, type } = contact
+    const { name, company, birthday, email, phone, comments, type } = contact
 
     const onChange = e => setContact({ ...contact, [e.target.name]: e.target.value })
 
@@ -62,6 +64,13 @@ const ContactForm = () => {
                 name="company" 
                 placeholder="Company" 
                 value={company}
+                onChange={onChange}
+            />
+            <input 
+                type="text" 
+                name="birthday" 
+                placeholder="Birthday" 
+                value={birthday}
                 onChange={onChange}
             />
             <input 
