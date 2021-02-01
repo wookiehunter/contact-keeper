@@ -9,11 +9,18 @@ const ContactSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    company: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
     },
     phone: {
+        type: String
+    },
+    comments: {
         type: String
     },
     type: {

@@ -31,13 +31,15 @@ router.post('/', [ auth, [
         return res.status(400).json({ errors: errors.array() })
     }
 
-    const { name, email, phone, type } = req.body;
+    const { name, company, email, phone, comments, type } = req.body;
 
     try {
         const newContact = new Contact({
             name,
+            company,
             email,
             phone,
+            comments,
             type,
             user: req.user.id
         });
@@ -52,16 +54,19 @@ router.post('/', [ auth, [
 })
 
 // @route   PUT api/contacts/:id
-// @desc    update a contact
+// @desc    updat e a contact
 // @access  Private
 router.put('/:id', auth, async (req, res) => {
-    const { name, email, phone, type } = req.body;
+    const { name, company, email, phone, comments, type } = req.body;
+
 
     // build contact object
     const contactFields = {}
     if(name) contactFields.name = name
+    if(company) contactFields.company = company
     if(email) contactFields.email = email
     if(phone) contactFields.phone = phone
+    if(comments) contactFields.comments = comments
     if(type) contactFields.type = type
 
     try {
